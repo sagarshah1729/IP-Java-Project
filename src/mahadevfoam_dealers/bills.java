@@ -85,6 +85,11 @@ public class bills extends javax.swing.JFrame {
 
         jLabel2.setText("Invoice Id:-");
 
+        Jinvoicenumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JinvoicenumberActionPerformed(evt);
+            }
+        });
         Jinvoicenumber.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 JinvoicenumberFocusGained(evt);
@@ -671,6 +676,10 @@ dispose();
        new office_management_menu().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void JinvoicenumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JinvoicenumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JinvoicenumberActionPerformed
 
     /**
      * @param args the command line arguments

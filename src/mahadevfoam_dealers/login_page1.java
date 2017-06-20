@@ -211,7 +211,7 @@ public class login_page1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try
+            try
        { 
          Class.forName("java.sql.Driver");
          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mahadev_foam","root","admin");
@@ -237,6 +237,8 @@ public class login_page1 extends javax.swing.JFrame {
                 jTfnewuserid.setText(null);
                 jTfnewuserpass.setText(null);
                 jadminpass.setText(null);
+                new mahadev_menu_page().setVisible(true);
+                dispose();
                 
             }
             else

@@ -283,7 +283,7 @@ try {
             String address=jtfcusaddress.getText();
             String region=jcomboregion.getSelectedItem().toString();
             
-            String sql = "update customer_details set cus_name='"+name+"',cus_phone='"+phone+"',cus_address='"+address+"',cus_region='"+region+"';";
+            String sql = "update customer_details set cus_name='"+name+"',cus_phone='"+phone+"',cus_address='"+address+"',cus_region='"+region+"'where cus_id='"+id+"';";
             stmt.executeUpdate(sql);
             
             
