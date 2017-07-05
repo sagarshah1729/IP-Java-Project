@@ -64,9 +64,9 @@
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jadminpass" min="-2" pref="125" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTfnewuserid" alignment="0" pref="124" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jTfnewuserpass" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTfnewuserid" alignment="0" pref="124" max="32767" attributes="0"/>
                               <Component id="jTfadminid" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -111,8 +111,8 @@
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTfnewuserpass" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTfnewuserpass" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -219,13 +219,13 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTfnewuserid">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTfnewuserpass">
-    </Component>
     <Component class="javax.swing.JTextField" name="jTfadminid">
     </Component>
     <Component class="javax.swing.JPasswordField" name="jpassfromuser">
     </Component>
     <Component class="javax.swing.JPasswordField" name="jadminpass">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jTfnewuserpass">
     </Component>
   </SubComponents>
 </Form>

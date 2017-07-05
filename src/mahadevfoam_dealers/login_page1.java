@@ -42,10 +42,10 @@ public class login_page1 extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jTfuserid = new javax.swing.JTextField();
         jTfnewuserid = new javax.swing.JTextField();
-        jTfnewuserpass = new javax.swing.JTextField();
         jTfadminid = new javax.swing.JTextField();
         jpassfromuser = new javax.swing.JPasswordField();
         jadminpass = new javax.swing.JPasswordField();
+        jTfnewuserpass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,10 +122,10 @@ public class login_page1 extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jadminpass, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTfnewuserid, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                                .addComponent(jTfnewuserpass)
-                                .addComponent(jTfadminid))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTfnewuserpass, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTfnewuserid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                                .addComponent(jTfadminid, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jLabel1)))
@@ -158,8 +158,8 @@ public class login_page1 extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTfnewuserpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jTfnewuserpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
@@ -318,7 +318,7 @@ public class login_page1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTfadminid;
     private javax.swing.JTextField jTfnewuserid;
-    private javax.swing.JTextField jTfnewuserpass;
+    private javax.swing.JPasswordField jTfnewuserpass;
     private javax.swing.JTextField jTfuserid;
     private javax.swing.JPasswordField jadminpass;
     private javax.swing.JPasswordField jpassfromuser;
