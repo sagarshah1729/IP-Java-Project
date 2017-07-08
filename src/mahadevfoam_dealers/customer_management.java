@@ -262,7 +262,7 @@ public class customer_management extends javax.swing.JFrame {
                                 .addComponent(jButton1)
                                 .addGap(16, 16, 16)))
                         .addComponent(jrbregionwise)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
