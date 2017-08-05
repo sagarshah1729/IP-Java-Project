@@ -52,6 +52,7 @@ public class Vendor_details extends javax.swing.JFrame {
         jtfadd = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Vendor Details");
 
         jLabel10.setText("Contact Person Name:-");
 
@@ -176,7 +177,7 @@ public class Vendor_details extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton7)
                     .addComponent(jButton8))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

@@ -45,12 +45,11 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
         jdealergrptable = new javax.swing.JTable();
         viewallbutton = new javax.swing.JButton();
         searchbutton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jTfid1 = new javax.swing.JTextField();
 
         jLabel3.setText("Id  No:-");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Add Dealer group");
 
         jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -76,11 +75,11 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Dealer Group"
+                "Group Name"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -103,8 +102,6 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Id  No:-");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,19 +119,12 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(searchbutton, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
-                                .addGap(0, 24, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(35, 35, 35))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTfid1)
-                                    .addComponent(jTfaddealer, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))))
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTfaddealer, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -149,11 +139,7 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTfid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTfaddealer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -183,14 +169,11 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
          Class.forName("java.sql.Driver");
          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mahadev_foam","root","admin");
          Statement stmt = conn.createStatement();
-            //int id=Integer.parseInt(jTfid1.getText().trim());
-            //int id2=id+1;
             String dealer_group=jTfaddealer.getText().trim();
             String sql = "insert into dealer_group values('"+dealer_group+"');";
-		      //"insert into dealer_group values('region');"
+                       //"insert into dealer_group values('region');"
 
-		stmt.executeUpdate(sql);
-              //  jTfid1.setText(id2+"");
+		stmt.executeUpdate(sql);         
                 jTfaddealer.setText(null);
                 JOptionPane.showMessageDialog(this,"Region added Sucessfully...");
 }
@@ -222,7 +205,7 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
             }
             while(rs.next())
             {
-                model.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                model.addRow(new Object[]{rs.getString(1)});
             }
 
         }
@@ -239,19 +222,9 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mahadev_foam","root","admin");
             Statement stmt = conn.createStatement();
             String region = (jTfaddealer.getText());
-            String sql = "SELECT * FROM dealer_group where region like '%"+region+"%';";
-            //select * from region_list where region like '%r%';
+            String sql = "SELECT * FROM dealer_group where delergroup like '%"+region+"%';";
+                        //select * from region_list where region like '%r%';
             ResultSet rs = stmt.executeQuery(sql);
-
-            /* if(rs.next())
-            {
-                String id = rs.getString("id");
-                String regions = rs.getString("region");
-                jTextArea1.append("ID : "+id+"\nregion : "+regions+"\n");
-            }
-            else
-            JOptionPane.showMessageDialog(this, "No record found....!");*/
-            //String id;
             int rows=model.getRowCount();
             if(rows>=0)
             {
@@ -262,7 +235,7 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
 
                 while(rs.next())
                 {
-                    model.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                    model.addRow(new Object[]{rs.getString(1)});
                 }
 
             }
@@ -314,11 +287,9 @@ public class Add_dealer_group_form extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTfaddealer;
     private javax.swing.JTextField jTfid;
-    private javax.swing.JTextField jTfid1;
     private javax.swing.JTable jdealergrptable;
     private javax.swing.JButton searchbutton;
     private javax.swing.JButton viewallbutton;

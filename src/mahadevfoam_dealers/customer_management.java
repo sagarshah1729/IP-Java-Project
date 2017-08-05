@@ -77,6 +77,7 @@ public class customer_management extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Customer Management");
 
         jLabel2.setText(" Name:-");
 
@@ -262,7 +263,7 @@ public class customer_management extends javax.swing.JFrame {
                                 .addComponent(jButton1)
                                 .addGap(16, 16, 16)))
                         .addComponent(jrbregionwise)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -389,7 +390,7 @@ new mahadev_menu_page().setVisible(true);
                         Statement stmt = conn.createStatement();
                         String name = (jtfcusname.getText());
                         String sql = "SELECT * FROM customer_details where cus_name like '%"+name+"%';";
-                                    //select * from region_list where region like '%r%';
+
                         ResultSet rs = stmt.executeQuery(sql);
 
                         int rows=model.getRowCount();
