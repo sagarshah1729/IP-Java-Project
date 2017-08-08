@@ -70,10 +70,9 @@ public class bills extends javax.swing.JFrame {
         jtfdis = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jlbdis = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jbt_save = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jtflength = new javax.swing.JTextField();
         jtfwidth = new javax.swing.JTextField();
         jtfheight = new javax.swing.JTextField();
@@ -100,6 +99,10 @@ public class bills extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel23 = new javax.swing.JLabel();
         jtfnettotal = new javax.swing.JTextField();
+        jlbmsg = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
 
         jcusnamebill2.setEditable(false);
         jcusnamebill2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -209,10 +212,10 @@ public class bills extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("SAVE");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbt_save.setText("SAVE");
+        jbt_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbt_saveActionPerformed(evt);
             }
         });
 
@@ -225,16 +228,14 @@ public class bills extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("View");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
         jtfheight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfheightActionPerformed(evt);
+            }
+        });
+        jtfheight.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfheightFocusLost(evt);
             }
         });
 
@@ -358,6 +359,14 @@ public class bills extends javax.swing.JFrame {
 
         jLabel23.setText("Total");
 
+        jButton4.setText("jButton4");
+
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -371,7 +380,7 @@ public class bills extends javax.swing.JFrame {
                                 .addComponent(jLabel5))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(23, 23, 23)
-                                .addComponent(jButton2)
+                                .addComponent(jbt_save)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -416,12 +425,18 @@ public class bills extends javax.swing.JFrame {
                                 .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jcusname, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jlbdis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jtfdis)
-                                        .addComponent(jlbtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jtfrate, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField1))
+                                            .addComponent(jlbdis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jtfdis)
+                                            .addComponent(jlbtotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jtfrate, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -451,18 +466,18 @@ public class bills extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jRbretails))
                                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(4, 4, 4)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,14 +494,19 @@ public class bills extends javax.swing.JFrame {
                                             .addComponent(Jinvoicenumberbill, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jcusnamebill, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jcusphone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jcusaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jButton6)
+                                            .addComponent(jcusaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(37, 37, 37)
-                                        .addComponent(jtfnettotal, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                        .addComponent(jtfnettotal, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jlbmsg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jButton4)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,10 +545,11 @@ public class bills extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtfnettotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(36, 36, 36)
-                                .addComponent(jButton6)
-                                .addGap(112, 112, 112)))
+                                    .addComponent(jtfnettotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlbmsg, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addComponent(jButton4)
+                                .addGap(115, 115, 115)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -587,9 +608,13 @@ public class bills extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jtfrate)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtfrate)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(73, 73, 73)
@@ -601,7 +626,7 @@ public class bills extends javax.swing.JFrame {
                                         .addComponent(jtfdis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
+                            .addComponent(jbt_save)
                             .addComponent(jButton3)
                             .addComponent(jButton5)
                             .addComponent(jButton7))
@@ -750,7 +775,7 @@ dispose();
 
     }//GEN-LAST:event_jSpinner1StateChanged
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbt_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_saveActionPerformed
       
         try
         {
@@ -808,6 +833,7 @@ dispose();
           stmt.executeUpdate(sqlinsertwholesale);
           
            JOptionPane.showMessageDialog(this, "Bill saved.");
+           Jinvoicenumberbill.setText(invoice_id+"");
           
           jcusname.setText(null);
           jcombocompanyselect.setSelectedIndex(0);
@@ -865,15 +891,15 @@ dispose();
           }
           if(jrbwholesale.isSelected())
           {
-          String sql="SELECT b.cus_id,b.cus_name,cus_address,cus_phone FROM bills_wholesale b, _details c WHERE b.cus_id=c.cus_id && invoice_id='"+invoice_id+"';";
+          String sql="SELECT b.dealer_id,b.firm_name,dealer_address,dealer_contact_number FROM bills_wholesale b, dealer_details c WHERE b.dealer_id=c.dealer_id && invoice_id='"+invoice_id+"';";
           ResultSet rs=stmt.executeQuery(sql);
                 if(rs.next()){
-                Jcusidbill.setText(rs.getString("cus_id"));    
-                jcusnamebill.setText(rs.getString("cus_name"));
-                jcusaddress.setText(rs.getString("cus_address"));
-                jcusphone.setText(rs.getString("cus_phone"));
+                Jcusidbill.setText(rs.getString("dealer_id"));    
+                jcusnamebill.setText(rs.getString("firm_name"));
+                jcusaddress.setText(rs.getString("dealer_address"));
+                jcusphone.setText(rs.getString("dealer_contact_number"));
                 }
-          String date="SELECT invoice_date FROM bills_RETAILS WHERE invoice_id='"+invoice_id+"';";       
+          String date="SELECT invoice_date FROM bills_wholesale WHERE invoice_id='"+invoice_id+"';";       
           rs=stmt.executeQuery(date);
                 if(rs.next()){
                 Jinvoicedate.setText(rs.getString("invoice_date"));
@@ -885,12 +911,29 @@ dispose();
           int rows=model.getRowCount();
           
           if(jRbretails.isSelected())
-          { String sqld="SELECT comp_name, product_name, length, width, height_MM, rate, quantity , total, discount_perc, net_amt FROM bills_RETAILS WHERE invoice_id='"+invoice_id+"';";}    
+          { String sqld="SELECT comp_name, product_name, length, width, height_MM, rate, quantity , total, discount_perc, net_amt FROM bills_RETAILS WHERE invoice_id='"+invoice_id+"';";
+          ResultSet rs = stmt.executeQuery(sqld);
+                if(rows>0)
+                    {
+                        for (int i=0;i<rows;i++)
+                        {
+                            model.removeRow(0);
+                        }
+                    }
+                    while(rs.next())
+                    {
+                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)});
+                    String sum="select sum(net_amt) from bills_wholesale where invoice_id="+invoice_id+";";
+                    rs=stmt.executeQuery(sum);
+                    if(rs.next())
+                    {jtfnettotal.setText(rs.getString("sum(net_amt)"));}
+                    jlbmsg.setText("Pls. Add this Bill Details to Payments");
+                    }
+          }    
           else if(jrbwholesale.isSelected())
           {
-            String sqld="SELECT comp_name, product_name, length, width, height_MM, rate, quantity , total, discount_perc, net_amt FROM bills_wholesale WHERE invoice_id='"+invoice_id+"';";      
-          }
-            ResultSet rs = stmt.executeQuery(sqld);
+          String sqld="SELECT comp_name, product_name, length, width, height_MM, rate, quantity , total, discount_perc, net_amt FROM bills_wholesale WHERE invoice_id='12';";     
+          ResultSet rs = stmt.executeQuery(sqld);
                 if(rows>0)
                     {
                         for (int i=0;i<rows;i++)
@@ -902,13 +945,19 @@ dispose();
                     {
                         model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)});
                     }
-                    Jinvoicenumberbill.setText(invoice_id+"");
+                    String sum="select sum(net_amt) from bills_wholesale where invoice_id="+invoice_id+";";
+                    rs=stmt.executeQuery(sum);
+                    if(rs.next())
+                    {jtfnettotal.setText(rs.getString("sum(net_amt)"));}
+                    jlbmsg.setText("Pls. Add this Bill Details to Payments");
+          }
+            
         } 
         catch (Exception e)
         {
            JOptionPane.showMessageDialog(this, e.getMessage());
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbt_saveActionPerformed
 
     private void JinvoicenumberFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JinvoicenumberFocusGained
         try 
@@ -995,55 +1044,6 @@ dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jcusphoneActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        try 
-        {
-          Class.forName("java.sql.Driver");
-          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mahadev_foam","root","admin");
-          Statement stmt = conn.createStatement();
-          
-          int invoice_id=Integer.parseInt(Jinvoicenumberbill.getText());
-          String sql="SELECT b.cus_id,b.cus_name,cus_address,cus_phone FROM bills_retails b, customer_details c WHERE b.cus_id=c.cus_id && invoice_id="+invoice_id+";";
-          ResultSet rs=stmt.executeQuery(sql);
-                if(rs.next()){
-                Jcusidbill.setText(rs.getString("cus_id"));    
-                jcusnamebill.setText(rs.getString("cus_name"));
-                jcusaddress.setText(rs.getString("cus_address"));
-                jcusphone.setText(rs.getString("cus_phone"));
-                }
-          String date="SELECT invoice_date FROM bills_RETAILS WHERE invoice_id="+invoice_id+";";       
-          rs=stmt.executeQuery(date);
-                if(rs.next()){
-                Jinvoicedate.setText(rs.getString("invoice_date"));
-                }
-            
-          DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
-          int rows=model.getRowCount();
-          
-          String sqld="SELECT comp_name, product_name, length, width, height_MM, rate, quantity , total, discount_perc, net_amt FROM bills_RETAILS WHERE invoice_id="+invoice_id+";";      
-          rs=stmt.executeQuery(sqld);
-                if(rows>0)
-                    {
-                        for (int i=0;i<rows;i++)
-                        {
-                            model.removeRow(0);
-                        }
-                    }
-                    while(rs.next())
-                    {
-                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)});
-                    }
-        } 
-        catch (Exception e)
-        {
-           JOptionPane.showMessageDialog(this, e.getMessage());
-        }          
-          
-
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void JcusidbillFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JcusidbillFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_JcusidbillFocusGained
@@ -1057,6 +1057,15 @@ dispose();
         int quant=Integer.parseInt(jSpinner5.getValue().toString());
         
         jlbtotal.setText(rate*quant+"");
+        
+        
+        int quantity1=(Integer)jSpinner5.getValue();
+        int quant1=Integer.parseInt(jTextField1.getText());
+        if(quantity1>quant1)
+         {
+             JOptionPane.showMessageDialog(this, "less quantity");
+             jbt_save.setEnabled(false);
+         }
         
       //  int quant=jSpinner5.getValue();
     }//GEN-LAST:event_jSpinner5StateChanged
@@ -1072,6 +1081,35 @@ dispose();
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jtfheightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfheightFocusLost
+        //
+    }//GEN-LAST:event_jtfheightFocusLost
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        try 
+        {
+           Class.forName("java.sql.Driver");
+          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mahadev_foam","root","admin");
+          Statement stmt = conn.createStatement();
+          
+         int upi=Integer.parseInt(jTextField2.getText());
+         int quantity1=(Integer)jSpinner5.getValue();
+         String quantity="select quant from stock where upi='"+upi+"';";
+         ResultSet rs=stmt.executeQuery(quantity);
+         if(rs.next())
+         {
+             jTextField1.setText(rs.getString("quant"));
+             
+         }
+         
+         
+        }
+        catch (Exception e) 
+        {
+            
+        }
+    }//GEN-LAST:event_jTextField2FocusLost
 
     /**
      * @param args the command line arguments
@@ -1116,10 +1154,9 @@ dispose();
     private javax.swing.JTextField Jinvoicenumberbill;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1151,6 +1188,9 @@ dispose();
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner5;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton jbt_save;
     private javax.swing.JComboBox jcombocompanyselect;
     private javax.swing.JComboBox jcomboproductselect;
     private javax.swing.JTextField jcusaddress;
@@ -1159,6 +1199,7 @@ dispose();
     private javax.swing.JTextField jcusnamebill2;
     private javax.swing.JTextField jcusphone;
     private javax.swing.JLabel jlbdis;
+    private javax.swing.JLabel jlbmsg;
     private javax.swing.JLabel jlbtotal;
     private javax.swing.JRadioButton jrbwholesale;
     private javax.swing.JTextField jtfdis;
