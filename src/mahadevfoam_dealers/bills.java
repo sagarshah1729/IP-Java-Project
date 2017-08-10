@@ -1083,7 +1083,15 @@ dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jtfheightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfheightFocusLost
-        //
+        
+          String company=jcombocompanyselect.getSelectedItem().toString();
+          String product=jcomboproductselect.getSelectedItem().toString();
+          int length=Integer.parseInt(jtflength.getText());
+          int width=Integer.parseInt(jtfwidth.getText());
+          int height=Integer.parseInt(jtfheight.getText());
+          
+          
+          new stock(company,product,length,width,height).setVisible(true);
     }//GEN-LAST:event_jtfheightFocusLost
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost

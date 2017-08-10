@@ -24,15 +24,9 @@ public class dealer_list_view_window extends javax.swing.JFrame {
     public dealer_list_view_window() {
         initComponents();
     }
-    
-    
-    
-
     dealer_list_view_window(String group, String region) {
         initComponents();
-        
-        
-        
+
         try{
                     DefaultTableModel model=(DefaultTableModel)jdealertable.getModel();
 
