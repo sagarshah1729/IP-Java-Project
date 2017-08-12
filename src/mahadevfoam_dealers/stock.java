@@ -24,21 +24,19 @@ public class stock extends javax.swing.JFrame {
     public stock() {
         initComponents();
     }
-     public stock() {
+    public stock(String company, String product, int length, int width, int height) {
         initComponents();
-
-    }
-
-    stock(String company, String product, int length, int width, int height) {
+      
          try{
                     DefaultTableModel model=(DefaultTableModel)jstock1.getModel();
 
                     Class.forName("java.sql.Driver");
                     Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/mahadev_foam","root","admin");
                     Statement stmt=conn.createStatement();
+                    
+                    jLabel1.setText("Pls. select appropriate UPI from the list given for "+company+" "+product+"\n"+length+"x"+width+"x"+height+"." );
 
-                     String sql="select godown,upi from stock where company='"+company+"',product_name='"+product+"',length='"+length+"',"
-                     + "width='"+width+"',height_mm='"+height+"';";
+                     String sql="select godown,upi,quant from stock where company='"+company+"' and product_name='"+product+"' and length='"+length+"' and width='"+width+"' and height_MM='"+height+"'AND QUANT>0;";
 
                      ResultSet rs=stmt.executeQuery(sql);
 
@@ -52,16 +50,14 @@ public class stock extends javax.swing.JFrame {
                     }
                     while(rs.next())
                     {
-                        model.addRow(new Object[]{rs.getString(1),rs.getString(2)});
+                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3)});
                     }
 
                 }    
                 catch(Exception e)
                 {
                         JOptionPane.showMessageDialog(this, e.getMessage()); 
-                }
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                } 
     }
 
     
@@ -77,18 +73,16 @@ public class stock extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jstock1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jstock1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "godown", "upi", "quantity"
             }
         ));
         jScrollPane1.setViewportView(jstock1);
@@ -99,14 +93,19 @@ public class stock extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,6 +147,7 @@ public class stock extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jstock1;
     // End of variables declaration//GEN-END:variables

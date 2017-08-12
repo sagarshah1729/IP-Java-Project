@@ -766,7 +766,7 @@ public class purchase_challan_input extends javax.swing.JFrame {
           String godown=jCombogodown.getSelectedItem().toString();
           
           String insert_stock="insert into stock values('"+date+"','"+invoiceid+"',"
-          + "'"+vendorid+"','"+vendorname+"','"+company+"','"+product+"','"+length+"','"+height+"','"+width+"','"+purch_price+"',"
+          + "'"+vendorid+"','"+vendorname+"','"+company+"','"+product+"','"+length+"','"+width+"','"+height+"','"+purch_price+"',"
           + "'"+mrp+"','"+quant+"','"+netamt+"','"+upi+"','"+godown+"')";
           stmt.executeUpdate(insert_stock);
           JOptionPane.showMessageDialog(this, "Item Added to Stock");
